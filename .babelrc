@@ -1,0 +1,9 @@
+{
+    "presets": ["@babel/preset-env",
+    {
+      "targets": {
+        "esmodules": true // or specify specific browsers
+      }
+    }]
+  }
+  
