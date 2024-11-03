@@ -11,8 +11,11 @@ permissions:
   packages: write
 
 jobs:
+
   build:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
 
     strategy:
       matrix:
