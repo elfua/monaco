@@ -29,14 +29,9 @@ clean: ## clean
 
 all: clean build twistd ## clean + build + twistd on http://$(TWISTD_HOST):$(TWISTD_PORT)
 
-# Combined Targets
 reinstall: clean install ## clean + build
 
 twistd: ## run twistd on http://$(TWISTD_HOST):$(TWISTD_PORT)
-# https://twisted.org/documents/15.2.0/web/howto/using-twistedweb.html
-# https://chatgpt.com/share/67224fce-6570-8003-8108-01fb2c88c0ea
-# --logfile /path/to/logfile.log (NO STDOUT output)
-# --prefix /static <<<< use given prefix as subdir instead of / from path
 	twistd -n web --path ./dist --port tcp:$(TWISTD_PORT):interface=$(TWISTD_HOST) --display-tracebacks
 
 esm: ## ESM build
