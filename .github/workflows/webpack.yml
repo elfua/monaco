@@ -32,7 +32,7 @@ jobs:
     - name: Build
       run: |
         yarn
-        yarn build && cp public/index.html dist && cp public/favicon.ico dist
+        yarn build
 
         
     # MUST SEE: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
