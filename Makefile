@@ -18,7 +18,6 @@ prod: clean build ## same as build
 build: ## build prod files in dist folder
 	@echo "Building the project for production..."
 	$(NPM) run build
-	cp public/index.html dist 
 
 deps: ## install dependences
 	$(NPM) install monaco-editor --save
