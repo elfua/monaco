@@ -22,15 +22,15 @@
           - name: Use Node.js 
             uses: actions/setup-node@v4
             with:
-              node-version: 18
+              node-version: 22
               cache: yarn
           - name: yarn
             run: yarn build
             
-          - name: 'github-pages'
+          - name: github-pages
             uses: actions/upload-artifact@v4
             with:
-              name: upload dist
+              name: github-pages
               path: dist
               retention-days: 90
           - name: Deploy to GitHub Pages
