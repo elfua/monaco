@@ -1,7 +1,7 @@
 .DEFAULT_GOAL := run
 
 NPM := npm
-TWISTD_PORT := 9003
+TWISTD_PORT := 9001
 TWISTD_HOST := 0.0.0.0
 
 # Targets
