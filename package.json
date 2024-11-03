@@ -6,7 +6,7 @@
   "scripts": {
     "start": "webpack serve --mode development --env development --progress ",
     "dist": "webpack --progress",
-    "build": "webpack --mode production --progress"
+    "build": "webpack --mode production --progress && cp public/index.html dist && cp public/favicon.ico dist" 
   },
   "repository": {
     "type": "git",
