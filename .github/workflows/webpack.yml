@@ -29,10 +29,10 @@ jobs:
       run: |
         yarn
         yarn build
-    - name: 'github-pages'
+    - name: github-pages
       uses: actions/upload-artifact@v4
       with:
-        name: upload dist
+        name: github-pages
         path: dist
         retention-days: 90
     - name: Deploy to GitHub Pages
