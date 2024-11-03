@@ -30,12 +30,13 @@ jobs:
       run: |
         yarn
         yarn build
-    - name: 'Create and upload artifact: github-pages'
-      uses: actions/upload-artifact@v4
+# MUST SEE: ACTION URL: https://github.com/actions/upload-pages-artifact
+    - name: Upload static files as artifact
+      id: deployment
+      uses: actions/upload-pages-artifact@v3
       with:
-        name: github-pages
         path: dist/
-        retention-days: 90
+# 
     - name: Deploy to GitHub Pages
       # MUST SEE: https://github.com/actions/deploy-pages
       uses: actions/deploy-pages@v4
