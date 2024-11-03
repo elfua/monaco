@@ -30,7 +30,7 @@ jobs:
       run: |
         yarn
         yarn build
-    - name: github-pages
+    - name: 'Create and upload artifact: github-pages'
       uses: actions/upload-artifact@v4
       with:
         name: github-pages
