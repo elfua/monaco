@@ -1,4 +1,4 @@
-name: NodeJS with yarn
+name: webpack yarn build
 
 on:
   # push:
