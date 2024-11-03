@@ -1,0 +1,41 @@
+  name: yarn build
+  on:
+    push:
+      branches:
+        - master
+  permissions:
+    contents: read
+    pages: write
+    id-token: write
+
+  jobs:
+    gh-pages-deploy:
+      # see: https://github.com/actions/deploy-pages
+      environment:
+        name: github-pages
+        url: ${{ steps.deployment.outputs.page_url }} 
+      name: Deploying to Github Pages
+      runs-on: ubuntu-latest
+      steps:
+          - uses: actions/checkout@v4
+          - name: Use Node.js 
+            uses: actions/setup-node@v4
+            with:
+              node-version: 18
+              cache: yarn
+          - name: yarn
+            run: yarn build
+            
+          - name: 'github-pages'
+            uses: actions/upload-artifact@v4
+            with:
+              name: upload dist
+              path: dist
+              retention-days: 90
+          - name: Deploy to GitHub Pages
+            uses: actions/deploy-pages@v4
+            with:
+              branch: gh-pages
+              folder: dist
+              force: true
+              
