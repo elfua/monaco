@@ -1,6 +1,7 @@
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 import './styles.css';
 import { minify } from "terser";
+import { emmetHTML, emmetCSS, emmetJSX, expandAbbreviation, registerCustomSnippets } from 'emmet-monaco-es'
 
 
 document.addEventListener('DOMContentLoaded', init);
@@ -34,6 +35,20 @@ async function minifyCode(code) {
 
 
 function init() {
+
+// `emmetHTML` , `emmetCSS` and `emmetJSX` are used the same way
+const dispose = emmetHTML(
+    // monaco-editor it self. If not provided, will use window.monaco instead.
+    // This could make the plugin support both ESM and AMD loaded monaco-editor
+    monaco,
+    // languages needs to support html markup emmet, should be lower case.
+    ['html', 'php', 'xml', 'css'],
+  )
+
+  // run it if you want to dispose emmetHTML.
+// NOTE: all languages specified will be disposed.
+// dispose()
+
     const editorDiv = document.createElement('div');
     editorDiv.id = 'root';
     document.body.appendChild(editorDiv);
